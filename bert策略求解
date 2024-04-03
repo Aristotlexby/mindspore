@@ -1,0 +1,238 @@
+bert暂时无法训练，只能在mp=8时成功profiling
+yaml为：seed: 0
+run_mode: 'train'
+output_dir: './output'  # 当前不支持自定义修改，请勿修改该默认值
+load_checkpoint: ''
+src_strategy_path_or_dir: ''
+auto_trans_ckpt: False  # If true, auto transform load_checkpoint to load in distributed model
+only_save_strategy: False
+resume_training: False
+
+# context
+context:
+  mode: 0 #0--Graph Mode; 1--Pynative Mode
+  device_target: "Ascend"
+  enable_graph_kernel: False
+  graph_kernel_flags: str = "--disable_expand_ops=Softmax,Dropout " \
+                              "--enable_parallel_fusion=true --reduce_fuse_depth=8 --enable_auto_tensor_inplace=true"
+  max_call_depth: 10000
+  save_graphs: False
+  save_graphs_path: "./graph"
+  device_id: 0
+
+# aicc
+remote_save_url: "Please input obs url on AICC platform."
+
+# runner
+runner_config:
+  epochs: 1
+  batch_size: 64
+  sink_size: 2
+  image_size: 224
+  sink_mode: True
+  
+runner_wrapper:
+  type: TrainOneStepCell
+  sens: 1024
+
+# parallel
+use_parallel: False
+parallel:
+  parallel_mode: 1 # 0-data parallel, 1-semi-auto parallel, 2-auto parallel, 3-hybrid parallel
+  gradients_mean: True
+  enable_alltoall: False
+  full_batch: False
+  search_mode: "sharding_propagation"
+  enable_parallel_optimizer: False
+  strategy_ckpt_save_file: "./ckpt_strategy.ckpt"
+parallel_config:
+  data_parallel: 1
+  model_parallel: 8
+  expert_parallel: 1
+  pipeline_stage: 1
+  micro_batch_num: 1
+  gradient_aggregation_group: 4
+micro_batch_interleave_num: 1
+
+# moe
+moe_config:
+  expert_num: 1
+  capacity_factor: 1.05
+  aux_loss_factor: 0.05
+  num_experts_chosen: 1
+
+# recompute
+recompute_config:
+  recompute: False
+  parallel_optimizer_comm_recompute: False
+  mp_comm_recompute: True
+  recompute_slice_activation: False
+
+# autotune
+auto_tune: False
+filepath_prefix: './autotune'
+autotune_per_step: 10
+
+# profile
+profile: False
+profile_start_step: 1
+profile_stop_step: 10
+init_start_profile: False
+profile_communication: False
+profile_memory: True
+
+# Trainer
+trainer:
+  type: MaskedLanguageModelingTrainer
+  model_name: 'bert_base_uncased'
+
+# train dataset
+train_dataset: &train_dataset
+  data_loader:
+    type: MindDataset
+    dataset_dir: "/home/xby/profiler-master/cost_profile/dataset/wikitext-2/wikitext-2/bert_profiling"
+    shuffle: True
+    # shard_equal_rows: True
+  input_columns: ["input_ids", "input_mask", "segment_ids",
+                  "next_sentence_labels", "masked_lm_positions",
+                  "masked_lm_ids", "masked_lm_weights"]
+  num_parallel_workers: 8
+  python_multiprocessing: False
+  drop_remainder: False
+  batch_size: 1
+  repeat: 1
+  numa_enable: False
+  prefetch_size: 1
+train_dataset_task:
+  type: MaskLanguageModelDataset
+  dataset_config: *train_dataset
+
+# model
+model:
+  model_config:
+    type: BertConfig
+    use_one_hot_embeddings: False
+    num_labels: 1
+    dropout_prob: 0.1
+    batch_size: 64
+    seq_length: 128 #length of input sentence
+    vocab_size: 30522 #size of vocab
+    hidden_size: 768 #size of text feature
+    num_hidden_layers: 30 #model depth
+    num_attention_heads: 24 #number of attention heads
+    intermediate_size: 3072 #hidden_size*4
+    hidden_act: "gelu" #activation
+    post_layernorm_residual: True #select postlayernorm or prelayernorm
+    hidden_dropout_prob: 0.1
+    attention_probs_dropout_prob: 0.1
+    max_position_embeddings: 512
+    type_vocab_size: 2
+    initializer_range: 0.02
+    use_relative_positions: False
+    use_past: False
+    checkpoint_name_or_path: ""
+  arch:
+    type: BertForPreTraining
+
+# lr sechdule
+lr_schedule:
+  type: cosine
+  learning_rate: 0.0001
+  lr_end: 0.000001
+  warmup_steps: 10000
+  total_steps: -1 # -1 means it will load the total steps of the dataset
+layer_scale: False
+layer_decay: 0.65
+
+# optimizer
+optimizer:
+  type: adamw
+  beta1: 0.9
+  beta2: 0.999
+  eps: 0.00000001 # 1e-8
+  weight_decay: 0.05
+lr_scale: False
+lr_scale_factor: 256
+
+# callbacks
+callbacks:
+  - type: MFLossMonitor
+  - type: CheckpointMointor
+    prefix: "mindformers"
+    save_checkpoint_steps: 10000
+    integrated_save: True
+    async_save: False
+  - type: ObsMonitor
+eval_callbacks:
+  - type: ObsMonitor
+
+# processor
+processor:
+  type: BertProcessor
+  tokenizer:
+    cls_token: '[CLS]'
+    do_basic_tokenize: True
+    do_lower_case: True
+    mask_token: '[MASK]'
+    pad_token: '[PAD]'
+    sep_token: '[SEP]'
+    type: BertTokenizer
+    unk_token: '[UNK]'
+  return_tensors: ms
+
+time_profiling: True
+time_profiling_dir: "/home/xby/profiler-master/cost_profile/results/bert"
+使用这个profiling作为所有profiling的结果，输出的策略是：
+{'hidden_size': Tensor(shape=[1], dtype=Float32, value= [ 1.02400000e+03]), 'sequence_length': Tensor(shape=[1], dtype=Float32, value= [ 1.02400000e+03]), 'num_layers': Tensor(shape=[1], dtype=Float32, value= [ 3.00000000e+01]), 'vocab_size': Tensor(shape=[1], dtype=Float32, value= [ 5.22560000e+04]), 'type': 'bert'}
+gbs:32
+rank 0: ((1, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 2.26209521e-01]))
+rank 1: ((2, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 2.51744143e-01]))
+rank 2: ((2, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 5, 7, 9, 10, 14, 20, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 2.97346934e-01]))
+rank 3: ((1, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 2.98035420e-01]))
+rank 4: ((1, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 5, 7, 8, 9, 10, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.00719775e-01]))
+rank 5: ((4, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.02813365e-01]))
+rank 6: ((2, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.23570027e-01]))
+rank 7: ((1, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.26313324e-01]))
+rank 8: ((1, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.33987433e-01]))
+rank 9: ((2, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.42962652e-01]))
+rank 10: ((2, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.50636761e-01]))
+rank 11: ((4, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 4, 5, 9, 10, 11, 18, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.55890988e-01]))
+rank 12: ((4, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.74639271e-01]))
+rank 13: ((4, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.76261307e-01]))
+rank 14: ((4, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.83935416e-01]))
+rank 15: ((8, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.04951815e-01]))
+rank 16: ((1, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.37489909e-01]))
+rank 17: ((2, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.37489909e-01]))
+rank 18: ((4, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.37489909e-01]))
+rank 19: ((8, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.37489909e-01]))
+rank 20: ((8, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.42858618e-01]))
+rank 21: ((8, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.50532728e-01]))
+rank 22: ((8, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 5, 8, 9, 10, 14, 18, 25, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.72754386e-01]))
+rank 23: ((8, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.76777714e-01]))
+rank 24: ((1, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.30529596e-01]))
+rank 25: ((2, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.47178908e-01]))
+rank 26: ((1, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.50933836e-01]))
+rank 27: ((2, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.50933836e-01]))
+rank 28: ((4, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.50933836e-01]))
+rank 29: ((1, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.72989931e-01]))
+rank 30: ((2, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.72989931e-01]))
+rank 31: ((4, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.72989931e-01]))
+rank 32: ((8, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.72989931e-01]))
+rank 33: ((16, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.72989931e-01]))
+rank 34: ((4, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.80477564e-01]))
+rank 35: ((16, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.83727349e-01]))
+rank 36: ((16, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 8, 16, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 6.09228713e-01]))
+rank 37: ((8, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 6.47074875e-01]))
+rank 38: ((16, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 14, 22, 30]), Tensor(shape=[1], dtype=Float64, value= [ 6.81156316e-01]))
+rank 39: ((16, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 4, 5, 9, 10, 11, 17, 24, 30]), Tensor(shape=[1], dtype=Float64, value= [ 7.06954011e-01]))
+rank 40: ((16, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 7.80269498e-01]))
+rank 41: ((1, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.02518390e+00]))
+rank 42: ((2, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.02518390e+00]))
+rank 43: ((4, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.02518390e+00]))
+rank 44: ((8, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.02518390e+00]))
+rank 45: ((16, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.02518390e+00]))
+rank 46: ((32, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.02518390e+00]))
+rank 47: ((32, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.04665874e+00]))
+rank 48: ((32, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 2.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 4.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 8, 16, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.08960841e+00]))
+rank 49: ((32, {'mp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'dp_deg': Tensor(shape=[1], dtype=Float32, value= [ 1.00000000e+00]), 'pp_deg': Tensor(shape=[1], dtype=Float32, value= [ 8.00000000e+00])}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 4, 8, 12, 16, 20, 24, 27, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.17550776e+00]))
+可以看到，bert的profiling结果是比较均匀的（除了第一层略大一点点），得到的策略也是比较均分的。由于PP=2时得到的策略均是[0,15,30]，故不做吞吐量对比测试。
