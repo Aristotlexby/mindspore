@@ -1,0 +1,680 @@
+dp4有PP划分：
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:44:58.734.148 [mindspore/run_check/_check_version.py:348] Using custom Ascend AI software package (Ascend Data Center Solution) path, package version checking is skipped. Please make sure Ascend AI software package (Ascend Data Center Solution) version is supported. For details, refer to the installation guidelines https://www.mindspore.cn/install
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:44:58.734.693 [mindspore/run_check/_check_version.py:469] Can not find driver so(need by mindspore-ascend). Please check whether the Environment Variable LD_LIBRARY_PATH is set. For details, refer to the installation guidelines: https://www.mindspore.cn/install
+[WARNING] DEVICE(1201653,ffff84012010,python):2024-06-13-17:45:11.157.666 [mindspore/ccsrc/plugin/device/ascend/hal/device/ascend_memory_adapter.cc:95] Initialize] Reserved memory size for other components(3187671040) is less than recommend size(4073615360), It may lead to Out Of Memory in HCCL or other components, Please double check context key 'variable_memory_max_size'/'max_device_memory'
+[WARNING] DEVICE(1201653,ffff84012010,python):2024-06-13-17:45:37.244.866 [mindspore/ccsrc/plugin/device/ascend/hal/hardware/ascend_collective_comm_lib.cc:126] Initialize] Launch Ascend distributed job in RankTable manner. This manner will be deprecated in later version of MindSpore. 
+ Please switch to 'msrun' or 'mpirun'. You can refer to this link about how to use these commands: https://www.mindspore.cn/tutorials/experts/zh-CN/r2.3/parallel/startup_method.html.
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:45:37.621.814 [mindspore/run_check/_check_version.py:348] Using custom Ascend AI software package (Ascend Data Center Solution) path, package version checking is skipped. Please make sure Ascend AI software package (Ascend Data Center Solution) version is supported. For details, refer to the installation guidelines https://www.mindspore.cn/install
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:45:37.623.178 [mindspore/run_check/_check_version.py:469] Can not find driver so(need by mindspore-ascend). Please check whether the Environment Variable LD_LIBRARY_PATH is set. For details, refer to the installation guidelines: https://www.mindspore.cn/install
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:45:37.623.818 [mindspore/run_check/_check_version.py:348] Using custom Ascend AI software package (Ascend Data Center Solution) path, package version checking is skipped. Please make sure Ascend AI software package (Ascend Data Center Solution) version is supported. For details, refer to the installation guidelines https://www.mindspore.cn/install
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:45:37.624.041 [mindspore/run_check/_check_version.py:469] Can not find driver so(need by mindspore-ascend). Please check whether the Environment Variable LD_LIBRARY_PATH is set. For details, refer to the installation guidelines: https://www.mindspore.cn/install
+2024-06-13 17:45:37,627 - mindformers[run_mindformer.py:94] - INFO - .........Build context config..........
+2024-06-13 17:45:37,629 - mindformers[parallel_config.py:44] - INFO - initial recompute_config from dict: {'recompute': True, 'select_recompute': False, 'parallel_optimizer_comm_recompute': False, 'mp_comm_recompute': True, 'recompute_slice_activation': True}
+2024-06-13 17:45:37,629 - mindformers[parallel_config.py:50] - INFO - initial parallel_config from dict: {'data_parallel': 4, 'model_parallel': 1, 'pipeline_stage': 2, 'pipeline_partition': [0, 12, 30], 'use_seq_parallel': False, 'micro_batch_num': 4, 'vocab_emb_dp': True, 'gradient_aggregation_group': 4}
+2024-06-13 17:45:37,630 - mindformers[parallel_config.py:53] - INFO - pipeline_stage = 2 > 1, vocab_emd_dp will be reset to False.
+2024-06-13 17:45:37,632 - mindformers[run_mindformer.py:101] - INFO - context config is: [ParallelConfig]
+pipeline_partition:[0, 12, 30]
+_recompute:[ParallelConfig]
+_recompute:True
+_select_recompute:False
+_parallel_optimizer_comm_recompute:False
+_mp_comm_recompute:True
+_recompute_slice_activation:True
+
+select_recompute:False
+use_seq_parallel:False
+_gradient_aggregation_group:4
+_embed_dp_mp_config:[ParallelConfig]
+_dp_mp_config:[ParallelConfig]
+_data_parallel:4
+_model_parallel:1
+use_seq_parallel:False
+select_recompute:False
+
+_vocab_emb_dp:False
+use_seq_parallel:False
+select_recompute:False
+
+_pp_config:[ParallelConfig]
+_pipeline_stage:2
+_micro_batch_num:4
+
+_moe_config:[ParallelConfig]
+_dpmp:[ParallelConfig]
+_data_parallel:4
+_model_parallel:1
+use_seq_parallel:False
+select_recompute:False
+
+_expert_parallel:1
+use_seq_parallel:False
+select_recompute:False
+
+
+2024-06-13 17:45:37,634 - mindformers[run_mindformer.py:102] - INFO - moe config is: <mindformers.modules.transformer.moe.MoEConfig object at 0xfffe96e20a50>
+2024-06-13 17:45:37,664 - mindformers[base_trainer.py:78] - INFO - Now Running Task is: text_generation, Model is: llama2_7b
+2024-06-13 17:45:37,665 - mindformers[base_trainer.py:176] - INFO - Pipeline parallel was opened: pipeline_stages = 2, full batch is True, global batch size will be changed: global_batch_size = batch_size * data_parallel * micro_batch_num * micro_batch_interleave_num = 2 * 4 * 4 * 1 = 32).
+2024-06-13 17:45:37,666 - mindformers[base_trainer.py:238] - WARNING - When using the pipeline parallel mode, the MFPipelineWithLossScaleCell class is used by default.
+2024-06-13 17:45:37,666 - mindformers[base_trainer.py:245] - INFO - PipelineWrapper under evaluate or predict mode will not take effect.
+2024-06-13 17:45:37,666 - mindformers[base_trainer.py:546] - INFO - .........Build Dataset For Train..........
+2024-06-13 17:45:37,666 - mindformers[base_trainer.py:286] - INFO - .........Build Dataset From Config..........
+2024-06-13 17:45:37,667 - mindformers[causal_language_model_dataset.py:100] - INFO - Now Create Causal Language Model Dataset.
+2024-06-13 17:45:37,721 - mindformers[utils.py:145] - INFO - Will be Training epochs:1, sink_size:2
+2024-06-13 17:45:37,721 - mindformers[utils.py:146] - INFO - Create training dataset finish, dataset size:20
+2024-06-13 17:45:41,024 - mindformers[base_trainer.py:560] - INFO - .........Build Net For Train..........
+2024-06-13 17:45:41,029 - mindformers[base_trainer.py:324] - INFO - .........Build Pipeline Network From Config..........
+2024-06-13 17:45:41,032 - mindformers[version_control.py:33] - INFO - The Cell Reuse compilation acceleration feature is not supported when the environment variable ENABLE_CELL_REUSE is 0 or MindSpore version is earlier than 2.1.0 or stand_alone mode or pipeline_stages <= 1
+2024-06-13 17:45:41,044 - mindformers[version_control.py:37] - INFO - 
+The current ENABLE_CELL_REUSE=0, please set the environment variable as follows: 
+export ENABLE_CELL_REUSE=1 to enable the Cell Reuse compilation acceleration feature.
+2024-06-13 17:45:41,485 - mindformers[layers.py:551] - WARNING - The user passed the custom defined activation function True. If the user want to enable shard for the activation cell, the user should set the shard for each primitives in the cell.
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:45:41.487.444 [mindspore/common/_decorator.py:40] 'Parameter' is deprecated from version 2.3 and will be removed in a future version, use 'add_pipeline_stage' instead.
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:45:41.487.852 [mindspore/common/parameter.py:806] This interface may be deleted in the future.
+2024-06-13 17:45:41,545 - mindformers[layers.py:551] - WARNING - The user passed the custom defined activation function True. If the user want to enable shard for the activation cell, the user should set the shard for each primitives in the cell.
+2024-06-13 17:45:41,614 - mindformers[layers.py:551] - WARNING - The user passed the custom defined activation function True. If the user want to enable shard for the activation cell, the user should set the shard for each primitives in the cell.
+2024-06-13 17:45:41,710 - mindformers[layers.py:551] - WARNING - The user passed the custom defined activation function True. If the user want to enable shard for the activation cell, the user should set the shard for each primitives in the cell.
+2024-06-13 17:45:41,753 - mindformers[layers.py:551] - WARNING - The user passed the custom defined activation function True. If the user want to enable shard for the activation cell, the user should set the shard for each primitives in the cell.
+2024-06-13 17:45:41,843 - mindformers[layers.py:551] - WARNING - The user passed the custom defined activation function True. If the user want to enable shard for the activation cell, the user should set the shard for each primitives in the cell.
+2024-06-13 17:45:41,885 - mindformers[layers.py:551] - WARNING - The user passed the custom defined activation function True. If the user want to enable shard for the activation cell, the user should set the shard for each primitives in the cell.
+2024-06-13 17:45:41,958 - mindformers[layers.py:551] - WARNING - The user passed the custom defined activation function True. If the user want to enable shard for the activation cell, the user should set the shard for each primitives in the cell.
+2024-06-13 17:45:42,034 - mindformers[layers.py:551] - WARNING - The user passed the custom defined activation function True. If the user want to enable shard for the activation cell, the user should set the shard for each primitives in the cell.
+2024-06-13 17:45:42,073 - mindformers[layers.py:551] - WARNING - The user passed the custom defined activation function True. If the user want to enable shard for the activation cell, the user should set the shard for each primitives in the cell.
+2024-06-13 17:45:43,406 - mindformers[base_model.py:117] - INFO - model built, but weights is unloaded, since the config has no checkpoint_name_or_path attribute or checkpoint_name_or_path is None.
+2024-06-13 17:45:43,458 - mindformers[base_trainer.py:457] - INFO - Network Parameters: 6333 M.
+2024-06-13 17:45:43,459 - mindformers[base_trainer.py:587] - INFO - .........Build Optimizer For Train..........
+2024-06-13 17:45:43,459 - mindformers[base_trainer.py:353] - INFO - .........Build Optimizer From Config..........
+2024-06-13 17:45:43,459 - mindformers[base_trainer.py:386] - INFO - .........Build LR Schedule From Config..........
+2024-06-13 17:45:43,467 - mindformers[optimizer_grouped_parameters.py:74] - WARNING - dynamic_lr_schedule will be reset and invalid when layer_scale is False.
+2024-06-13 17:45:43,489 - mindformers[optimizer_grouped_parameters.py:113] - INFO - Param groups = {
+  "decay": {
+    "weight_decay": 0.0,
+    "params": [
+      "model.tok_embeddings.embedding_weight",
+      "model.layers.0.attention.wo.weight",
+      "model.layers.0.attention.wq.weight",
+      "model.layers.0.attention.wk.weight",
+      "model.layers.0.attention.wv.weight",
+      "model.layers.0.feed_forward.w1.weight",
+      "model.layers.0.feed_forward.w2.weight",
+      "model.layers.0.feed_forward.w3.weight",
+      "model.layers.1.attention.wo.weight",
+      "model.layers.1.attention.wq.weight",
+      "model.layers.1.attention.wk.weight",
+      "model.layers.1.attention.wv.weight",
+      "model.layers.1.feed_forward.w1.weight",
+      "model.layers.1.feed_forward.w2.weight",
+      "model.layers.1.feed_forward.w3.weight",
+      "model.layers.2.attention.wo.weight",
+      "model.layers.2.attention.wq.weight",
+      "model.layers.2.attention.wk.weight",
+      "model.layers.2.attention.wv.weight",
+      "model.layers.2.feed_forward.w1.weight",
+      "model.layers.2.feed_forward.w2.weight",
+      "model.layers.2.feed_forward.w3.weight",
+      "model.layers.3.attention.wo.weight",
+      "model.layers.3.attention.wq.weight",
+      "model.layers.3.attention.wk.weight",
+      "model.layers.3.attention.wv.weight",
+      "model.layers.3.feed_forward.w1.weight",
+      "model.layers.3.feed_forward.w2.weight",
+      "model.layers.3.feed_forward.w3.weight",
+      "model.layers.4.attention.wo.weight",
+      "model.layers.4.attention.wq.weight",
+      "model.layers.4.attention.wk.weight",
+      "model.layers.4.attention.wv.weight",
+      "model.layers.4.feed_forward.w1.weight",
+      "model.layers.4.feed_forward.w2.weight",
+      "model.layers.4.feed_forward.w3.weight",
+      "model.layers.5.attention.wo.weight",
+      "model.layers.5.attention.wq.weight",
+      "model.layers.5.attention.wk.weight",
+      "model.layers.5.attention.wv.weight",
+      "model.layers.5.feed_forward.w1.weight",
+      "model.layers.5.feed_forward.w2.weight",
+      "model.layers.5.feed_forward.w3.weight",
+      "model.layers.6.attention.wo.weight",
+      "model.layers.6.attention.wq.weight",
+      "model.layers.6.attention.wk.weight",
+      "model.layers.6.attention.wv.weight",
+      "model.layers.6.feed_forward.w1.weight",
+      "model.layers.6.feed_forward.w2.weight",
+      "model.layers.6.feed_forward.w3.weight",
+      "model.layers.7.attention.wo.weight",
+      "model.layers.7.attention.wq.weight",
+      "model.layers.7.attention.wk.weight",
+      "model.layers.7.attention.wv.weight",
+      "model.layers.7.feed_forward.w1.weight",
+      "model.layers.7.feed_forward.w2.weight",
+      "model.layers.7.feed_forward.w3.weight",
+      "model.layers.8.attention.wo.weight",
+      "model.layers.8.attention.wq.weight",
+      "model.layers.8.attention.wk.weight",
+      "model.layers.8.attention.wv.weight",
+      "model.layers.8.feed_forward.w1.weight",
+      "model.layers.8.feed_forward.w2.weight",
+      "model.layers.8.feed_forward.w3.weight",
+      "model.layers.9.attention.wo.weight",
+      "model.layers.9.attention.wq.weight",
+      "model.layers.9.attention.wk.weight",
+      "model.layers.9.attention.wv.weight",
+      "model.layers.9.feed_forward.w1.weight",
+      "model.layers.9.feed_forward.w2.weight",
+      "model.layers.9.feed_forward.w3.weight",
+      "model.layers.10.attention.wo.weight",
+      "model.layers.10.attention.wq.weight",
+      "model.layers.10.attention.wk.weight",
+      "model.layers.10.attention.wv.weight",
+      "model.layers.10.feed_forward.w1.weight",
+      "model.layers.10.feed_forward.w2.weight",
+      "model.layers.10.feed_forward.w3.weight",
+      "model.layers.11.attention.wo.weight",
+      "model.layers.11.attention.wq.weight",
+      "model.layers.11.attention.wk.weight",
+      "model.layers.11.attention.wv.weight",
+      "model.layers.11.feed_forward.w1.weight",
+      "model.layers.11.feed_forward.w2.weight",
+      "model.layers.11.feed_forward.w3.weight",
+      "model.layers.12.attention.wo.weight",
+      "model.layers.12.attention.wq.weight",
+      "model.layers.12.attention.wk.weight",
+      "model.layers.12.attention.wv.weight",
+      "model.layers.12.feed_forward.w1.weight",
+      "model.layers.12.feed_forward.w2.weight",
+      "model.layers.12.feed_forward.w3.weight",
+      "model.layers.13.attention.wo.weight",
+      "model.layers.13.attention.wq.weight",
+      "model.layers.13.attention.wk.weight",
+      "model.layers.13.attention.wv.weight",
+      "model.layers.13.feed_forward.w1.weight",
+      "model.layers.13.feed_forward.w2.weight",
+      "model.layers.13.feed_forward.w3.weight",
+      "model.layers.14.attention.wo.weight",
+      "model.layers.14.attention.wq.weight",
+      "model.layers.14.attention.wk.weight",
+      "model.layers.14.attention.wv.weight",
+      "model.layers.14.feed_forward.w1.weight",
+      "model.layers.14.feed_forward.w2.weight",
+      "model.layers.14.feed_forward.w3.weight",
+      "model.layers.15.attention.wo.weight",
+      "model.layers.15.attention.wq.weight",
+      "model.layers.15.attention.wk.weight",
+      "model.layers.15.attention.wv.weight",
+      "model.layers.15.feed_forward.w1.weight",
+      "model.layers.15.feed_forward.w2.weight",
+      "model.layers.15.feed_forward.w3.weight",
+      "model.layers.16.attention.wo.weight",
+      "model.layers.16.attention.wq.weight",
+      "model.layers.16.attention.wk.weight",
+      "model.layers.16.attention.wv.weight",
+      "model.layers.16.feed_forward.w1.weight",
+      "model.layers.16.feed_forward.w2.weight",
+      "model.layers.16.feed_forward.w3.weight",
+      "model.layers.17.attention.wo.weight",
+      "model.layers.17.attention.wq.weight",
+      "model.layers.17.attention.wk.weight",
+      "model.layers.17.attention.wv.weight",
+      "model.layers.17.feed_forward.w1.weight",
+      "model.layers.17.feed_forward.w2.weight",
+      "model.layers.17.feed_forward.w3.weight",
+      "model.layers.18.attention.wo.weight",
+      "model.layers.18.attention.wq.weight",
+      "model.layers.18.attention.wk.weight",
+      "model.layers.18.attention.wv.weight",
+      "model.layers.18.feed_forward.w1.weight",
+      "model.layers.18.feed_forward.w2.weight",
+      "model.layers.18.feed_forward.w3.weight",
+      "model.layers.19.attention.wo.weight",
+      "model.layers.19.attention.wq.weight",
+      "model.layers.19.attention.wk.weight",
+      "model.layers.19.attention.wv.weight",
+      "model.layers.19.feed_forward.w1.weight",
+      "model.layers.19.feed_forward.w2.weight",
+      "model.layers.19.feed_forward.w3.weight",
+      "model.layers.20.attention.wo.weight",
+      "model.layers.20.attention.wq.weight",
+      "model.layers.20.attention.wk.weight",
+      "model.layers.20.attention.wv.weight",
+      "model.layers.20.feed_forward.w1.weight",
+      "model.layers.20.feed_forward.w2.weight",
+      "model.layers.20.feed_forward.w3.weight",
+      "model.layers.21.attention.wo.weight",
+      "model.layers.21.attention.wq.weight",
+      "model.layers.21.attention.wk.weight",
+      "model.layers.21.attention.wv.weight",
+      "model.layers.21.feed_forward.w1.weight",
+      "model.layers.21.feed_forward.w2.weight",
+      "model.layers.21.feed_forward.w3.weight",
+      "model.layers.22.attention.wo.weight",
+      "model.layers.22.attention.wq.weight",
+      "model.layers.22.attention.wk.weight",
+      "model.layers.22.attention.wv.weight",
+      "model.layers.22.feed_forward.w1.weight",
+      "model.layers.22.feed_forward.w2.weight",
+      "model.layers.22.feed_forward.w3.weight",
+      "model.layers.23.attention.wo.weight",
+      "model.layers.23.attention.wq.weight",
+      "model.layers.23.attention.wk.weight",
+      "model.layers.23.attention.wv.weight",
+      "model.layers.23.feed_forward.w1.weight",
+      "model.layers.23.feed_forward.w2.weight",
+      "model.layers.23.feed_forward.w3.weight",
+      "model.layers.24.attention.wo.weight",
+      "model.layers.24.attention.wq.weight",
+      "model.layers.24.attention.wk.weight",
+      "model.layers.24.attention.wv.weight",
+      "model.layers.24.feed_forward.w1.weight",
+      "model.layers.24.feed_forward.w2.weight",
+      "model.layers.24.feed_forward.w3.weight",
+      "model.layers.25.attention.wo.weight",
+      "model.layers.25.attention.wq.weight",
+      "model.layers.25.attention.wk.weight",
+      "model.layers.25.attention.wv.weight",
+      "model.layers.25.feed_forward.w1.weight",
+      "model.layers.25.feed_forward.w2.weight",
+      "model.layers.25.feed_forward.w3.weight",
+      "model.layers.26.attention.wo.weight",
+      "model.layers.26.attention.wq.weight",
+      "model.layers.26.attention.wk.weight",
+      "model.layers.26.attention.wv.weight",
+      "model.layers.26.feed_forward.w1.weight",
+      "model.layers.26.feed_forward.w2.weight",
+      "model.layers.26.feed_forward.w3.weight",
+      "model.layers.27.attention.wo.weight",
+      "model.layers.27.attention.wq.weight",
+      "model.layers.27.attention.wk.weight",
+      "model.layers.27.attention.wv.weight",
+      "model.layers.27.feed_forward.w1.weight",
+      "model.layers.27.feed_forward.w2.weight",
+      "model.layers.27.feed_forward.w3.weight",
+      "model.layers.28.attention.wo.weight",
+      "model.layers.28.attention.wq.weight",
+      "model.layers.28.attention.wk.weight",
+      "model.layers.28.attention.wv.weight",
+      "model.layers.28.feed_forward.w1.weight",
+      "model.layers.28.feed_forward.w2.weight",
+      "model.layers.28.feed_forward.w3.weight",
+      "model.layers.29.attention.wo.weight",
+      "model.layers.29.attention.wq.weight",
+      "model.layers.29.attention.wk.weight",
+      "model.layers.29.attention.wv.weight",
+      "model.layers.29.feed_forward.w1.weight",
+      "model.layers.29.feed_forward.w2.weight",
+      "model.layers.29.feed_forward.w3.weight",
+      "lm_head.weight"
+    ]
+  },
+  "no_decay": {
+    "weight_decay": 0.0,
+    "params": [
+      "model.layers.0.attention_norm.weight",
+      "model.layers.0.ffn_norm.weight",
+      "model.layers.1.attention_norm.weight",
+      "model.layers.1.ffn_norm.weight",
+      "model.layers.2.attention_norm.weight",
+      "model.layers.2.ffn_norm.weight",
+      "model.layers.3.attention_norm.weight",
+      "model.layers.3.ffn_norm.weight",
+      "model.layers.4.attention_norm.weight",
+      "model.layers.4.ffn_norm.weight",
+      "model.layers.5.attention_norm.weight",
+      "model.layers.5.ffn_norm.weight",
+      "model.layers.6.attention_norm.weight",
+      "model.layers.6.ffn_norm.weight",
+      "model.layers.7.attention_norm.weight",
+      "model.layers.7.ffn_norm.weight",
+      "model.layers.8.attention_norm.weight",
+      "model.layers.8.ffn_norm.weight",
+      "model.layers.9.attention_norm.weight",
+      "model.layers.9.ffn_norm.weight",
+      "model.layers.10.attention_norm.weight",
+      "model.layers.10.ffn_norm.weight",
+      "model.layers.11.attention_norm.weight",
+      "model.layers.11.ffn_norm.weight",
+      "model.layers.12.attention_norm.weight",
+      "model.layers.12.ffn_norm.weight",
+      "model.layers.13.attention_norm.weight",
+      "model.layers.13.ffn_norm.weight",
+      "model.layers.14.attention_norm.weight",
+      "model.layers.14.ffn_norm.weight",
+      "model.layers.15.attention_norm.weight",
+      "model.layers.15.ffn_norm.weight",
+      "model.layers.16.attention_norm.weight",
+      "model.layers.16.ffn_norm.weight",
+      "model.layers.17.attention_norm.weight",
+      "model.layers.17.ffn_norm.weight",
+      "model.layers.18.attention_norm.weight",
+      "model.layers.18.ffn_norm.weight",
+      "model.layers.19.attention_norm.weight",
+      "model.layers.19.ffn_norm.weight",
+      "model.layers.20.attention_norm.weight",
+      "model.layers.20.ffn_norm.weight",
+      "model.layers.21.attention_norm.weight",
+      "model.layers.21.ffn_norm.weight",
+      "model.layers.22.attention_norm.weight",
+      "model.layers.22.ffn_norm.weight",
+      "model.layers.23.attention_norm.weight",
+      "model.layers.23.ffn_norm.weight",
+      "model.layers.24.attention_norm.weight",
+      "model.layers.24.ffn_norm.weight",
+      "model.layers.25.attention_norm.weight",
+      "model.layers.25.ffn_norm.weight",
+      "model.layers.26.attention_norm.weight",
+      "model.layers.26.ffn_norm.weight",
+      "model.layers.27.attention_norm.weight",
+      "model.layers.27.ffn_norm.weight",
+      "model.layers.28.attention_norm.weight",
+      "model.layers.28.ffn_norm.weight",
+      "model.layers.29.attention_norm.weight",
+      "model.layers.29.ffn_norm.weight",
+      "model.norm_out.weight"
+    ]
+  }
+}
+2024-06-13 17:45:44,066 - mindformers[base_trainer.py:593] - INFO - .........Build Running Wrapper From Config For Train..........
+2024-06-13 17:45:44,066 - mindformers[base_trainer.py:423] - INFO - .........Build Model Wrapper for Train From Config..........
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:45:44.355.482 [mindspore/ops/operations/math_ops.py:2327] The 'NPUAllocFloatStatus' operator will be deprecated in the future, please use 'nn.TrainOneStepWithLossScaleCell' or 'amp.all_finite'.
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:45:44.356.035 [mindspore/ops/operations/math_ops.py:2398] The 'NPUGetFloatStatus' operator will be deprecated in the future, please use 'nn.TrainOneStepWithLossScaleCell' or 'amp.all_finite'.
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:45:44.356.346 [mindspore/ops/operations/math_ops.py:2463] The 'NPUClearFloatStatus' operator will be deprecated in the future,please use 'nn.TrainOneStepWithLossScaleCell' or 'amp.all_finite'.
+2024-06-13 17:45:44,360 - mindformers[base_trainer.py:600] - INFO - .........Build Callbacks For Train..........
+2024-06-13 17:45:44,361 - mindformers[base_trainer.py:432] - INFO - .........Build Callbacks for Train From Config..........
+2024-06-13 17:45:44,365 - mindformers[base_trainer.py:622] - INFO - .........Starting Init Train Model..........
+2024-06-13 17:45:44,366 - mindformers[base_trainer.py:657] - INFO - .........Starting Training Model..........
+{'auto_trans_ckpt': False,
+ 'auto_tune': False,
+ 'autotune_per_step': 10,
+ 'callbacks': [OrderedDict([('type', 'MFLossMonitor')]),
+               OrderedDict([('type', 'ObsMonitor')])],
+ 'context': {'device_id': 0,
+             'device_target': 'Ascend',
+             'enable_graph_kernel': False,
+             'graph_kernel_flags': '--disable_expand_ops=Softmax,Dropout '
+                                   '--enable_parallel_fusion=true '
+                                   '--reduce_fuse_depth=8 '
+                                   '--enable_auto_tensor_inplace=true',
+             'max_call_depth': 10000,
+             'save_graphs': False,
+             'save_graphs_path': './graph'},
+ 'data_size': 20,
+ 'device_num': 8,
+ 'do_eval': False,
+ 'eval_callbacks': [OrderedDict([('type', 'ObsMonitor')])],
+ 'eval_dataset': {'auto_tune': False,
+                  'autotune_per_step': 10,
+                  'batch_size': 32,
+                  'data_loader': {'dataset_dir': '',
+                                  'num_samples': 640,
+                                  'shuffle': False,
+                                  'type': 'MindDataset'},
+                  'do_eval': True,
+                  'drop_remainder': False,
+                  'filepath_prefix': './autotune',
+                  'input_columns': ['input_ids'],
+                  'num_parallel_workers': 8,
+                  'numa_enable': False,
+                  'prefetch_size': 1,
+                  'profile': False,
+                  'python_multiprocessing': False,
+                  'repeat': 1,
+                  'seed': 0},
+ 'eval_dataset_task': {'dataset_config': {'auto_tune': False,
+                                          'autotune_per_step': 10,
+                                          'batch_size': 32,
+                                          'data_loader': {'dataset_dir': '',
+                                                          'num_samples': 640,
+                                                          'shuffle': False,
+                                                          'type': 'MindDataset'},
+                                          'do_eval': True,
+                                          'drop_remainder': False,
+                                          'filepath_prefix': './autotune',
+                                          'input_columns': ['input_ids'],
+                                          'num_parallel_workers': 8,
+                                          'numa_enable': False,
+                                          'prefetch_size': 1,
+                                          'profile': False,
+                                          'python_multiprocessing': False,
+                                          'repeat': 1,
+                                          'seed': 0},
+                       'type': 'CausalLanguageModelDataset'},
+ 'filepath_prefix': './autotune',
+ 'init_start_profile': False,
+ 'layer_decay': 0.65,
+ 'layer_scale': False,
+ 'load_checkpoint': None,
+ 'local_rank': 0,
+ 'lr_scale_factor': 256,
+ 'lr_schedule': {'learning_rate': 5e-05,
+                 'lr_end': 0,
+                 'total_steps': 20,
+                 'type': 'CosineWithWarmUpLR',
+                 'warmup_steps': 0},
+ 'metric': {'type': 'PerplexityMetric'},
+ 'micro_batch_interleave_num': 1,
+ 'model': {'arch': {'type': 'LlamaForCausalLM'},
+           'model_config': {'batch_size': 1,
+                            'bos_token_id': 1,
+                            'checkpoint_name_or_path': '',
+                            'compute_dtype': 'float16',
+                            'compute_in_2d': True,
+                            'do_sample': False,
+                            'eos_token_id': 2,
+                            'extend_method': 'None',
+                            'hidden_size': 4096,
+                            'ignore_token_id': -100,
+                            'layernorm_compute_type': 'float32',
+                            'max_decode_length': 512,
+                            'multiple_of': 256,
+                            'num_heads': 32,
+                            'num_layers': 30,
+                            'offset': 0,
+                            'pad_token_id': 0,
+                            'param_init_type': 'float16',
+                            'pretrain_seqlen': 4096,
+                            'repetition_penalty': 1,
+                            'rms_norm_eps': 1e-05,
+                            'rotary_dtype': 'float16',
+                            'seq_length': 4096,
+                            'softmax_compute_type': 'float16',
+                            'top_k': 3,
+                            'top_p': 1,
+                            'type': 'LlamaConfig',
+                            'use_flash_attention': False,
+                            'use_past': False,
+                            'use_past_shard': False,
+                            'vocab_size': 32000}},
+ 'moe_config': <mindformers.modules.transformer.moe.MoEConfig object at 0xfffe96e20a50>,
+ 'only_save_strategy': False,
+ 'optimizer': {'beta1': 0.9,
+               'beta2': 0.95,
+               'eps': 1e-08,
+               'learning_rate': 5e-05,
+               'type': 'FP32StateAdamWeightDecay'},
+ 'output_dir': './output',
+ 'parallel': {'device_num': 8,
+              'enable_alltoall': False,
+              'enable_parallel_optimizer': True,
+              'full_batch': True,
+              'gradients_mean': False,
+              'parallel_mode': 'semi_auto_parallel',
+              'parallel_optimizer_config': {'gradient_accumulation_shard': False,
+                                            'parallel_optimizer_threshold': 64},
+              'pipeline_stages': 2,
+              'search_mode': 'sharding_propagation',
+              'strategy_ckpt_save_file': '../../output/strategy/./ckpt_strategy_rank_0.ckpt'},
+ 'parallel_config': <mindformers.modules.transformer.transformer.TransformerOpParallelConfig object at 0xfffe8d6c89d0>,
+ 'processor': {'return_tensors': 'ms',
+               'tokenizer': {'bos_token': '<s>',
+                             'eos_token': '</s>',
+                             'pad_token': '<unk>',
+                             'type': 'LlamaTokenizer',
+                             'unk_token': '<unk>'},
+               'type': 'LlamaProcessor'},
+ 'profile': False,
+ 'profile_communication': False,
+ 'profile_memory': True,
+ 'profile_start_step': 1,
+ 'profile_stop_step': 10,
+ 'recompute_config': <mindformers.modules.transformer.transformer.TransformerRecomputeConfig object at 0xfffe94ab9750>,
+ 'remote_save_url': 'Please input obs url on AICC platform.',
+ 'resume_training': False,
+ 'run_mode': 'train',
+ 'runner_config': {'batch_size': 32,
+                   'epochs': 10,
+                   'initial_epoch': 0,
+                   'origin_epochs': 1,
+                   'sink_mode': True,
+                   'sink_size': 2},
+ 'runner_wrapper': {'micro_batch_num': 4,
+                    'scale_sense': DynamicLossScaleUpdateCell<>,
+                    'type': 'MFPipelineWithLossScaleCell',
+                    'use_clip_grad': True},
+ 'seed': 0,
+ 'src_strategy_path_or_dir': '',
+ 'time_profiling': False,
+ 'time_profiling_dir': '/home/xby/profiler-master/cost_profile/results/llama2',
+ 'train_dataset': {'auto_tune': False,
+                   'autotune_per_step': 10,
+                   'batch_size': 32,
+                   'data_loader': {'dataset_dir': '/home/xby/profiler-master/cost_profile/dataset/llama2_profiling/',
+                                   'num_samples': 640,
+                                   'shuffle': True,
+                                   'type': 'MindDataset'},
+                   'do_eval': False,
+                   'drop_remainder': True,
+                   'filepath_prefix': './autotune',
+                   'input_columns': ['input_ids'],
+                   'num_parallel_workers': 8,
+                   'numa_enable': False,
+                   'prefetch_size': 1,
+                   'profile': False,
+                   'python_multiprocessing': False,
+                   'repeat': 1,
+                   'seed': 0},
+ 'train_dataset_task': {'dataset_config': {'auto_tune': False,
+                                           'autotune_per_step': 10,
+                                           'batch_size': 32,
+                                           'data_loader': {'dataset_dir': '/home/xby/profiler-master/cost_profile/dataset/llama2_profiling/',
+                                                           'num_samples': 640,
+                                                           'shuffle': True,
+                                                           'type': 'MindDataset'},
+                                           'do_eval': False,
+                                           'drop_remainder': True,
+                                           'filepath_prefix': './autotune',
+                                           'input_columns': ['input_ids'],
+                                           'num_parallel_workers': 8,
+                                           'numa_enable': False,
+                                           'prefetch_size': 1,
+                                           'profile': False,
+                                           'python_multiprocessing': False,
+                                           'repeat': 1,
+                                           'seed': 0},
+                        'type': 'CausalLanguageModelDataset'},
+ 'trainer': {'model_name': 'llama2_7b',
+             'type': 'CausalLanguageModelingTrainer'},
+ 'use_parallel': True}
+2024-06-13 17:45:44,372 - mindformers[base_trainer.py:660] - INFO - .........Model Compiling, Please Wait a Moment...........
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:45:44.373.320 [mindspore/train/model.py:1122] For MFLossMonitor callback, {'step_end', 'epoch_end', 'step_begin', 'epoch_begin'} methods may not be supported in later version, Use methods prefixed with 'on_train' or 'on_eval' instead when using customized callbacks.
+[WARNING] ME(1201653:281472896409616,MainProcess):2024-06-13-17:45:44.373.527 [mindspore/train/model.py:1122] For Local2ObsMonitor callback, {'step_end', 'epoch_end'} methods may not be supported in later version, Use methods prefixed with 'on_train' or 'on_eval' instead when using customized callbacks.
+[WARNING] DISTRIBUTED(1201653,ffff84012010,python):2024-06-13-17:47:17.412.208 [mindspore/ccsrc/distributed/collective/collective_manager.cc:259] CreateCommunicationGroup] Start to create communication group: 4-6301172352641561019 [const vector]{0, 1, 2, 3}
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:21.925.228 [mindspore/ccsrc/frontend/parallel/step_parallel.cc:2220] GetSensLossPairs] Can not find the loss cnode
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:22.876.164 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op0 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:22.876.609 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/Sqrt-op0 has no OperatorInfo.
+[WARNING] DISTRIBUTED(1201653,ffff84012010,python):2024-06-13-17:47:22.890.036 [mindspore/ccsrc/distributed/collective/collective_manager.cc:259] CreateCommunicationGroup] Start to create communication group: 2-16453000547691086251 [const vector]{0, 4}
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.040.183 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/Sqrt-op0 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.076.589 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op1 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.077.039 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op2 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.077.248 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op3 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.077.447 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op4 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.077.636 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op5 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.077.828 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op6 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.078.013 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op7 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.078.205 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op8 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.078.387 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op9 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.078.574 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op10 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.078.765 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op11 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.078.973 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op12 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.079.170 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op13 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.079.374 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op14 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.079.573 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op15 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.079.769 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op16 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.079.985 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op17 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.080.178 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op18 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.080.382 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op19 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.096.916 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op20 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.097.282 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op21 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.097.482 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op22 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.097.672 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op23 has no OperatorInfo.
+[WARNING] PARALLEL(1201653,ffff84012010,python):2024-06-13-17:47:23.097.860 [mindspore/ccsrc/frontend/parallel/graph_util/graph_utils.cc:68] GetTensorRedistributionFromCNode] Default/network-MFPipelineWithLossScaleCell/clip_grad_norm-ClipGradNorm/ExpandDims-op24 has no OperatorInfo.
+-
+\
+|
+/
+-
+\
+|
+/
+-
+\
+|
+/
+-
+\
+|
+/
+-
+\
+|
+/
+-
+\
+|
+/
+-
+\
+|
+/
+-
+\
+|
+/
+-
+\
+|
+/
+-
+\
+2024-06-13 18:12:21,334 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-13 18:12:21,387 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    2/   20], loss: 0.000, per_step_time: 798432ms, lr: 5e-05, overflow cond: False, loss_scale: 65536.0
+2024-06-13 18:12:21,448 - mindformers[callback.py:318] - INFO -   10.0% |█████                                             | 0.01 samples/s/p  3:59:31 }
+2024-06-13 18:12:39,973 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-13 18:12:39,985 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    4/   20], loss: 0.000, per_step_time: 9221ms, lr: 4.8776412e-05, overflow cond: False, loss_scale: 65536.0
+2024-06-13 18:12:39,995 - mindformers[callback.py:318] - INFO -   20.0% |██████████                                        | 0.43 samples/s/p  0:02:27 }
+2024-06-13 18:12:58,141 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-13 18:12:58,172 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    6/   20], loss: 0.000, per_step_time: 9050ms, lr: 4.522542e-05, overflow cond: False, loss_scale: 65536.0
+2024-06-13 18:12:58,203 - mindformers[callback.py:318] - INFO -   30.0% |███████████████                                   | 0.44 samples/s/p  0:02:06 }
+2024-06-13 18:13:16,408 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-13 18:13:16,489 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    8/   20], loss: 0.000, per_step_time: 9074ms, lr: 3.969463e-05, overflow cond: False, loss_scale: 65536.0
+2024-06-13 18:13:16,524 - mindformers[callback.py:318] - INFO -   40.0% |████████████████████                              | 0.44 samples/s/p  0:01:48 }
+2024-06-13 18:13:34,658 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-13 18:13:34,817 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   10/   20], loss: 0.000, per_step_time: 9006ms, lr: 3.2725424e-05, overflow cond: False, loss_scale: 65536.0
+2024-06-13 18:13:35,021 - mindformers[callback.py:318] - INFO -   50.0% |█████████████████████████                         | 0.44 samples/s/p  0:01:30 }
+2024-06-13 18:13:53,030 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-13 18:13:53,102 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   12/   20], loss: 0.000, per_step_time: 8907ms, lr: 2.4999998e-05, overflow cond: False, loss_scale: 65536.0
+2024-06-13 18:13:53,112 - mindformers[callback.py:318] - INFO -   60.0% |██████████████████████████████                    | 0.45 samples/s/p  0:01:11 }
+2024-06-13 18:14:11,215 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-13 18:14:11,453 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   14/   20], loss: 0.000, per_step_time: 8980ms, lr: 1.727457e-05, overflow cond: False, loss_scale: 65536.0
+2024-06-13 18:14:11,565 - mindformers[callback.py:318] - INFO -   70.0% |███████████████████████████████████               | 0.45 samples/s/p  0:00:53 }
+2024-06-13 18:14:29,476 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-13 18:14:29,486 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   16/   20], loss: 0.000, per_step_time: 8928ms, lr: 1.030537e-05, overflow cond: False, loss_scale: 65536.0
+2024-06-13 18:14:29,512 - mindformers[callback.py:318] - INFO -   80.0% |████████████████████████████████████████          | 0.45 samples/s/p  0:00:35 }
+2024-06-13 18:14:47,365 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-13 18:14:47,367 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   18/   20], loss: 0.000, per_step_time: 8893ms, lr: 4.774575e-06, overflow cond: False, loss_scale: 65536.0
+2024-06-13 18:14:47,368 - mindformers[callback.py:318] - INFO -   90.0% |█████████████████████████████████████████████     | 0.45 samples/s/p  0:00:17 }
+2024-06-13 18:15:05,222 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-13 18:15:05,223 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   20/   20], loss: 0.000, per_step_time: 8922ms, lr: 1.223585e-06, overflow cond: False, loss_scale: 65536.0
+2024-06-13 18:15:05,224 - mindformers[callback.py:318] - INFO -   100.0% |██████████████████████████████████████████████████| 0.45 samples/s/p  0:00:00 }
+2024-06-13 18:15:05,231 - mindformers[base_trainer.py:666] - INFO - .........Training Over!.............
+<string>:1: RuntimeWarning: divide by zero encountered in log
+<string>:1: RuntimeWarning: divide by zero encountered in log
+<string>:1: RuntimeWarning: divide by zero encountered in log
+<string>:1: RuntimeWarning: divide by zero encountered in log
+<string>:1: RuntimeWarning: divide by zero encountered in log
