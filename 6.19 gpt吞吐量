@@ -1,6 +1,7 @@
 结果：
 dp1mp4----7.77
 dp4mp1----5.98
+dp2mp2----5.58
 
 下面是日志
 
@@ -331,3 +332,126 @@ dp4mp1:
 2024-06-17 21:33:24,747 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   80/   80], loss: 0.000, per_step_time: 336ms, lr: 1.2249998e-05, overflow cond: False, loss_scale: 4294967300.0
 2024-06-17 21:33:24,748 - mindformers[callback.py:318] - INFO -   100.0% |██████████████████████████████████████████████████| 5.95 samples/s/p  0:00:00 }
 2024-06-17 21:33:24,752 - mindformers[base_trainer.py:666] - INFO - .........Training Over!.............
+
+dp2mp2:
+2024-06-21 17:10:00,040 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:00,057 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    2/   80], loss: 0.000, per_step_time: 128427ms, lr: 1e-04, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:00,073 - mindformers[callback.py:318] - INFO -    2.5% |█                                                 | 0.02 samples/s/p  2:46:57 }
+2024-06-21 17:10:00,966 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:00,978 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    4/   80], loss: 0.000, per_step_time: 436ms, lr: 9.775e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:00,984 - mindformers[callback.py:318] - INFO -    5.0% |██                                                | 4.58 samples/s/p  0:00:33 }
+2024-06-21 17:10:01,850 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:01,865 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    6/   80], loss: 0.000, per_step_time: 422ms, lr: 9.549999e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:01,872 - mindformers[callback.py:318] - INFO -    7.5% |███                                               | 4.73 samples/s/p  0:00:31 }
+2024-06-21 17:10:02,709 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:02,724 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    8/   80], loss: 0.000, per_step_time: 409ms, lr: 9.324999e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:02,736 - mindformers[callback.py:318] - INFO -   10.0% |█████                                             | 4.89 samples/s/p  0:00:29 }
+2024-06-21 17:10:03,553 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:03,561 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   10/   80], loss: 0.000, per_step_time: 401ms, lr: 9.0999994e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:03,570 - mindformers[callback.py:318] - INFO -   12.5% |██████                                            | 4.99 samples/s/p  0:00:28 }
+2024-06-21 17:10:04,371 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:04,381 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   12/   80], loss: 0.000, per_step_time: 388ms, lr: 8.875e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:04,387 - mindformers[callback.py:318] - INFO -   15.0% |███████                                           | 5.14 samples/s/p  0:00:26 }
+2024-06-21 17:10:05,174 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:05,178 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   14/   80], loss: 0.000, per_step_time: 386ms, lr: 8.65e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:05,185 - mindformers[callback.py:318] - INFO -   17.5% |████████                                          | 5.17 samples/s/p  0:00:25 }
+2024-06-21 17:10:05,966 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:05,970 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   16/   80], loss: 0.000, per_step_time: 372ms, lr: 8.425e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:05,972 - mindformers[callback.py:318] - INFO -   20.0% |██████████                                        | 5.37 samples/s/p  0:00:23 }
+2024-06-21 17:10:06,779 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:06,780 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   18/   80], loss: 0.000, per_step_time: 393ms, lr: 8.2e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:06,780 - mindformers[callback.py:318] - INFO -   22.5% |███████████                                       | 5.08 samples/s/p  0:00:24 }
+2024-06-21 17:10:07,576 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:07,576 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   20/   80], loss: 0.000, per_step_time: 394ms, lr: 7.9749996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:07,577 - mindformers[callback.py:318] - INFO -   25.0% |████████████                                      | 5.06 samples/s/p  0:00:23 }
+2024-06-21 17:10:08,301 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:08,301 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   22/   80], loss: 0.000, per_step_time: 359ms, lr: 7.750001e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:08,302 - mindformers[callback.py:318] - INFO -   27.5% |█████████████                                     | 5.57 samples/s/p  0:00:20 }
+2024-06-21 17:10:09,025 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:09,026 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   24/   80], loss: 0.000, per_step_time: 359ms, lr: 7.5250005e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:09,026 - mindformers[callback.py:318] - INFO -   30.0% |███████████████                                   | 5.57 samples/s/p  0:00:20 }
+2024-06-21 17:10:09,750 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:09,750 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   26/   80], loss: 0.000, per_step_time: 359ms, lr: 7.3e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:09,750 - mindformers[callback.py:318] - INFO -   32.5% |████████████████                                  | 5.57 samples/s/p  0:00:19 }
+2024-06-21 17:10:10,474 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:10,475 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   28/   80], loss: 0.000, per_step_time: 359ms, lr: 7.074999e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:10,475 - mindformers[callback.py:318] - INFO -   35.0% |█████████████████                                 | 5.57 samples/s/p  0:00:18 }
+2024-06-21 17:10:11,202 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:11,203 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   30/   80], loss: 0.000, per_step_time: 360ms, lr: 6.85e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:11,203 - mindformers[callback.py:318] - INFO -   37.5% |██████████████████                                | 5.55 samples/s/p  0:00:18 }
+2024-06-21 17:10:11,937 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:11,938 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   32/   80], loss: 0.000, per_step_time: 364ms, lr: 6.6249995e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:11,938 - mindformers[callback.py:318] - INFO -   40.0% |████████████████████                              | 5.49 samples/s/p  0:00:17 }
+2024-06-21 17:10:12,662 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:12,662 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   34/   80], loss: 0.000, per_step_time: 358ms, lr: 6.4e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:12,662 - mindformers[callback.py:318] - INFO -   42.5% |█████████████████████                             | 5.57 samples/s/p  0:00:16 }
+2024-06-21 17:10:13,389 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:13,389 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   36/   80], loss: 0.000, per_step_time: 360ms, lr: 6.1750005e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:13,390 - mindformers[callback.py:318] - INFO -   45.0% |██████████████████████                            | 5.55 samples/s/p  0:00:15 }
+2024-06-21 17:10:14,116 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:14,116 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   38/   80], loss: 0.000, per_step_time: 360ms, lr: 5.9499995e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:14,117 - mindformers[callback.py:318] - INFO -   47.5% |███████████████████████                           | 5.55 samples/s/p  0:00:15 }
+2024-06-21 17:10:14,845 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:14,846 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   40/   80], loss: 0.000, per_step_time: 361ms, lr: 5.725e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:14,846 - mindformers[callback.py:318] - INFO -   50.0% |█████████████████████████                         | 5.53 samples/s/p  0:00:14 }
+2024-06-21 17:10:15,577 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:15,577 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   42/   80], loss: 0.000, per_step_time: 362ms, lr: 5.4999993e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:15,578 - mindformers[callback.py:318] - INFO -   52.5% |██████████████████████████                        | 5.52 samples/s/p  0:00:13 }
+2024-06-21 17:10:16,301 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:16,302 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   44/   80], loss: 0.000, per_step_time: 359ms, lr: 5.2749998e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:16,302 - mindformers[callback.py:318] - INFO -   55.0% |███████████████████████████                       | 5.57 samples/s/p  0:00:12 }
+2024-06-21 17:10:17,046 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:17,046 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   46/   80], loss: 0.000, per_step_time: 368ms, lr: 5.05e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:17,046 - mindformers[callback.py:318] - INFO -   57.5% |████████████████████████████                      | 5.42 samples/s/p  0:00:12 }
+2024-06-21 17:10:17,770 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:17,771 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   48/   80], loss: 0.000, per_step_time: 359ms, lr: 4.8249996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:17,771 - mindformers[callback.py:318] - INFO -   60.0% |██████████████████████████████                    | 5.57 samples/s/p  0:00:11 }
+2024-06-21 17:10:18,504 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:18,505 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   50/   80], loss: 0.000, per_step_time: 363ms, lr: 4.5999997e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:18,505 - mindformers[callback.py:318] - INFO -   62.5% |███████████████████████████████                   | 5.50 samples/s/p  0:00:10 }
+2024-06-21 17:10:19,232 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:19,232 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   52/   80], loss: 0.000, per_step_time: 360ms, lr: 4.3750002e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:19,233 - mindformers[callback.py:318] - INFO -   65.0% |████████████████████████████████                  | 5.55 samples/s/p  0:00:10 }
+2024-06-21 17:10:19,963 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:19,964 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   54/   80], loss: 0.000, per_step_time: 362ms, lr: 4.1499996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:19,964 - mindformers[callback.py:318] - INFO -   67.5% |█████████████████████████████████                 | 5.52 samples/s/p  0:00:09 }
+2024-06-21 17:10:20,709 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:20,710 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   56/   80], loss: 0.000, per_step_time: 369ms, lr: 3.925e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:20,710 - mindformers[callback.py:318] - INFO -   70.0% |███████████████████████████████████               | 5.41 samples/s/p  0:00:08 }
+2024-06-21 17:10:21,433 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:21,434 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   58/   80], loss: 0.000, per_step_time: 358ms, lr: 3.6999998e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:21,434 - mindformers[callback.py:318] - INFO -   72.5% |████████████████████████████████████              | 5.58 samples/s/p  0:00:07 }
+2024-06-21 17:10:22,179 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:22,180 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   60/   80], loss: 0.000, per_step_time: 369ms, lr: 3.4749995e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:22,180 - mindformers[callback.py:318] - INFO -   75.0% |█████████████████████████████████████             | 5.41 samples/s/p  0:00:07 }
+2024-06-21 17:10:22,926 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:22,927 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   62/   80], loss: 0.000, per_step_time: 370ms, lr: 3.2499996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:22,927 - mindformers[callback.py:318] - INFO -   77.5% |██████████████████████████████████████            | 5.40 samples/s/p  0:00:06 }
+2024-06-21 17:10:23,684 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:23,685 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   64/   80], loss: 0.000, per_step_time: 375ms, lr: 3.0249998e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:23,685 - mindformers[callback.py:318] - INFO -   80.0% |████████████████████████████████████████          | 5.32 samples/s/p  0:00:06 }
+2024-06-21 17:10:24,429 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:24,429 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   66/   80], loss: 0.000, per_step_time: 369ms, lr: 2.7999997e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:24,430 - mindformers[callback.py:318] - INFO -   82.5% |█████████████████████████████████████████         | 5.42 samples/s/p  0:00:05 }
+2024-06-21 17:10:25,159 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:25,159 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   68/   80], loss: 0.000, per_step_time: 361ms, lr: 2.5750001e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:25,160 - mindformers[callback.py:318] - INFO -   85.0% |██████████████████████████████████████████        | 5.53 samples/s/p  0:00:04 }
+2024-06-21 17:10:25,895 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:25,896 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   70/   80], loss: 0.000, per_step_time: 364ms, lr: 2.3499997e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:25,896 - mindformers[callback.py:318] - INFO -   87.5% |███████████████████████████████████████████       | 5.48 samples/s/p  0:00:03 }
+2024-06-21 17:10:26,622 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:26,623 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   72/   80], loss: 0.000, per_step_time: 360ms, lr: 2.1249996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:26,623 - mindformers[callback.py:318] - INFO -   90.0% |█████████████████████████████████████████████     | 5.55 samples/s/p  0:00:02 }
+2024-06-21 17:10:27,354 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:27,355 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   74/   80], loss: 0.000, per_step_time: 362ms, lr: 1.8999996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:27,355 - mindformers[callback.py:318] - INFO -   92.5% |██████████████████████████████████████████████    | 5.51 samples/s/p  0:00:02 }
+2024-06-21 17:10:28,083 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:28,083 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   76/   80], loss: 0.000, per_step_time: 360ms, lr: 1.6749998e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:28,084 - mindformers[callback.py:318] - INFO -   95.0% |███████████████████████████████████████████████   | 5.54 samples/s/p  0:00:01 }
+2024-06-21 17:10:28,810 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:28,810 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   78/   80], loss: 0.000, per_step_time: 360ms, lr: 1.45e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:28,811 - mindformers[callback.py:318] - INFO -   97.5% |████████████████████████████████████████████████  | 5.55 samples/s/p  0:00:00 }
+2024-06-21 17:10:29,537 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-21 17:10:29,537 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   80/   80], loss: 0.000, per_step_time: 360ms, lr: 1.2249998e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-21 17:10:29,538 - mindformers[callback.py:318] - INFO -   100.0% |██████████████████████████████████████████████████| 5.55 samples/s/p  0:00:00 }
+2024-06-21 17:10:29,541 - mindformers[base_trainer.py:666] - INFO - .........Training Over!.............
