@@ -1,0 +1,152 @@
+dp1mp4:
+2024-06-22 16:36:49,407 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 16:36:49,490 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    2/   20], loss: 0.000, per_step_time: 138905ms, lr: 5e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 16:36:49,578 - mindformers[callback.py:318] - INFO -   10.0% |█████                                             | 0.00 samples/s/p  0:41:40 }
+2024-06-22 16:36:51,371 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 16:36:51,442 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    4/   20], loss: 0.000, per_step_time: 860ms, lr: 4.5099998e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 16:36:51,464 - mindformers[callback.py:318] - INFO -   20.0% |██████████                                        | 0.58 samples/s/p  0:00:13 }
+2024-06-22 16:36:53,230 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 16:36:53,294 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    6/   20], loss: 0.000, per_step_time: 847ms, lr: 4.02e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 16:36:53,340 - mindformers[callback.py:318] - INFO -   30.0% |███████████████                                   | 0.59 samples/s/p  0:00:11 }
+2024-06-22 16:36:55,079 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 16:36:55,135 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    8/   20], loss: 0.000, per_step_time: 846ms, lr: 3.5299996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 16:36:55,151 - mindformers[callback.py:318] - INFO -   40.0% |████████████████████                              | 0.59 samples/s/p  0:00:10 }
+2024-06-22 16:36:56,936 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 16:36:56,980 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   10/   20], loss: 0.000, per_step_time: 854ms, lr: 3.0399999e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 16:36:57,004 - mindformers[callback.py:318] - INFO -   50.0% |█████████████████████████                         | 0.59 samples/s/p  0:00:08 }
+2024-06-22 16:36:58,779 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 16:36:58,811 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   12/   20], loss: 0.000, per_step_time: 850ms, lr: 2.5499996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 16:36:58,824 - mindformers[callback.py:318] - INFO -   60.0% |██████████████████████████████                    | 0.59 samples/s/p  0:00:06 }
+2024-06-22 16:37:00,590 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 16:37:00,591 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   14/   20], loss: 0.000, per_step_time: 839ms, lr: 2.0599999e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 16:37:00,591 - mindformers[callback.py:318] - INFO -   70.0% |███████████████████████████████████               | 0.60 samples/s/p  0:00:05 }
+2024-06-22 16:37:02,321 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 16:37:02,322 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   16/   20], loss: 0.000, per_step_time: 861ms, lr: 1.5699998e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 16:37:02,322 - mindformers[callback.py:318] - INFO -   80.0% |████████████████████████████████████████          | 0.58 samples/s/p  0:00:03 }
+2024-06-22 16:37:04,007 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 16:37:04,008 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   18/   20], loss: 0.000, per_step_time: 839ms, lr: 1.07999995e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 16:37:04,008 - mindformers[callback.py:318] - INFO -   90.0% |█████████████████████████████████████████████     | 0.60 samples/s/p  0:00:01 }
+2024-06-22 16:37:05,691 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 16:37:05,692 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   20/   20], loss: 0.000, per_step_time: 838ms, lr: 5.8999985e-06, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 16:37:05,692 - mindformers[callback.py:318] - INFO -   100.0% |██████████████████████████████████████████████████| 0.60 samples/s/p  0:00:00 }
+2024-06-22 16:37:05,698 - mindformers[base_trainer.py:666] - INFO - .........Training Over!.............
+
+dp2mp2:
+2024-06-22 17:13:08,757 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:13:08,772 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    2/   20], loss: 0.000, per_step_time: 135396ms, lr: 5e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:13:08,788 - mindformers[callback.py:318] - INFO -   10.0% |█████                                             | 0.01 samples/s/p  0:40:37 }
+2024-06-22 17:13:12,050 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:13:12,067 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    4/   20], loss: 0.000, per_step_time: 1622ms, lr: 4.5099998e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:13:12,076 - mindformers[callback.py:318] - INFO -   20.0% |██████████                                        | 0.62 samples/s/p  0:00:25 }
+2024-06-22 17:13:15,306 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:13:15,316 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    6/   20], loss: 0.000, per_step_time: 1610ms, lr: 4.02e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:13:15,323 - mindformers[callback.py:318] - INFO -   30.0% |███████████████                                   | 0.62 samples/s/p  0:00:22 }
+2024-06-22 17:13:18,560 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:13:18,574 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    8/   20], loss: 0.000, per_step_time: 1610ms, lr: 3.5299996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:13:18,583 - mindformers[callback.py:318] - INFO -   40.0% |████████████████████                              | 0.62 samples/s/p  0:00:19 }
+2024-06-22 17:13:21,838 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:13:21,847 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   10/   20], loss: 0.000, per_step_time: 1612ms, lr: 3.0399999e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:13:21,857 - mindformers[callback.py:318] - INFO -   50.0% |█████████████████████████                         | 0.62 samples/s/p  0:00:16 }
+2024-06-22 17:13:25,137 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:13:25,147 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   12/   20], loss: 0.000, per_step_time: 1630ms, lr: 2.5499996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:13:25,157 - mindformers[callback.py:318] - INFO -   60.0% |██████████████████████████████                    | 0.61 samples/s/p  0:00:13 }
+2024-06-22 17:13:28,413 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:13:28,414 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   14/   20], loss: 0.000, per_step_time: 1619ms, lr: 2.0599999e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:13:28,414 - mindformers[callback.py:318] - INFO -   70.0% |███████████████████████████████████               | 0.62 samples/s/p  0:00:09 }
+2024-06-22 17:13:31,672 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:13:31,672 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   16/   20], loss: 0.000, per_step_time: 1625ms, lr: 1.5699998e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:13:31,673 - mindformers[callback.py:318] - INFO -   80.0% |████████████████████████████████████████          | 0.62 samples/s/p  0:00:06 }
+2024-06-22 17:13:34,986 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:13:34,987 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   18/   20], loss: 0.000, per_step_time: 1653ms, lr: 1.07999995e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:13:34,987 - mindformers[callback.py:318] - INFO -   90.0% |█████████████████████████████████████████████     | 0.60 samples/s/p  0:00:03 }
+2024-06-22 17:13:38,202 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:13:38,203 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   20/   20], loss: 0.000, per_step_time: 1604ms, lr: 5.8999985e-06, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:13:38,203 - mindformers[callback.py:318] - INFO -   100.0% |██████████████████████████████████████████████████| 0.62 samples/s/p  0:00:00 }
+2024-06-22 17:13:38,209 - mindformers[base_trainer.py:666] - INFO - .........Training Over!.............
+
+dp4mp1:
+2024-06-22 17:01:16,979 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:01:16,984 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    2/   20], loss: 0.000, per_step_time: 156524ms, lr: 5e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:01:16,988 - mindformers[callback.py:318] - INFO -   10.0% |█████                                             | 0.01 samples/s/p  0:46:57 }
+2024-06-22 17:01:20,818 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:01:20,826 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    4/   20], loss: 0.000, per_step_time: 1908ms, lr: 4.5099998e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:01:20,829 - mindformers[callback.py:318] - INFO -   20.0% |██████████                                        | 1.05 samples/s/p  0:00:30 }
+2024-06-22 17:01:24,638 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:01:24,641 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    6/   20], loss: 0.000, per_step_time: 1900ms, lr: 4.02e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:01:24,646 - mindformers[callback.py:318] - INFO -   30.0% |███████████████                                   | 1.05 samples/s/p  0:00:26 }
+2024-06-22 17:01:28,461 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:01:28,465 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[    8/   20], loss: 0.000, per_step_time: 1900ms, lr: 3.5299996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:01:28,466 - mindformers[callback.py:318] - INFO -   40.0% |████████████████████                              | 1.05 samples/s/p  0:00:22 }
+2024-06-22 17:01:32,302 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:01:32,306 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   10/   20], loss: 0.000, per_step_time: 1910ms, lr: 3.0399999e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:01:32,309 - mindformers[callback.py:318] - INFO -   50.0% |█████████████████████████                         | 1.05 samples/s/p  0:00:19 }
+2024-06-22 17:01:36,125 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:01:36,126 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   12/   20], loss: 0.000, per_step_time: 1901ms, lr: 2.5499996e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:01:36,133 - mindformers[callback.py:318] - INFO -   60.0% |██████████████████████████████                    | 1.05 samples/s/p  0:00:15 }
+2024-06-22 17:01:39,956 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:01:39,960 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   14/   20], loss: 0.000, per_step_time: 1906ms, lr: 2.0599999e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:01:39,961 - mindformers[callback.py:318] - INFO -   70.0% |███████████████████████████████████               | 1.05 samples/s/p  0:00:11 }
+2024-06-22 17:01:43,782 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:01:43,784 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   16/   20], loss: 0.000, per_step_time: 1903ms, lr: 1.5699998e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:01:43,784 - mindformers[callback.py:318] - INFO -   80.0% |████████████████████████████████████████          | 1.05 samples/s/p  0:00:07 }
+2024-06-22 17:01:47,598 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:01:47,599 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   18/   20], loss: 0.000, per_step_time: 1903ms, lr: 1.07999995e-05, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:01:47,599 - mindformers[callback.py:318] - INFO -   90.0% |█████████████████████████████████████████████     | 1.05 samples/s/p  0:00:03 }
+2024-06-22 17:01:51,384 - mindformers[callback.py:246] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-06-22 17:01:51,385 - mindformers[callback.py:310] - INFO - { Epoch:[  1/  1], step:[   20/   20], loss: 0.000, per_step_time: 1889ms, lr: 5.8999985e-06, overflow cond: False, loss_scale: 4294967300.0
+2024-06-22 17:01:51,385 - mindformers[callback.py:318] - INFO -   100.0% |██████████████████████████████████████████████████| 1.06 samples/s/p  0:00:00 }
+2024-06-22 17:01:51,389 - mindformers[base_trainer.py:666] - INFO - .........Training Over!.............
+
+apss推理结果：
+{'hidden_size': Tensor(shape=[1], dtype=Float32, value= [ 5.12000000e+03]), 'sequence_length': Tensor(shape=[1], dtype=Float32, value= [ 1.02400000e+03]), 'num_layers': Tensor(shape=[1], dtype=Float32, value= [ 3.00000000e+01]), 'vocab_size': Tensor(shape=[1], dtype=Float32, value= [ 5.02570000e+04]), 'type': 'gpt_13b'}
+gbs:32
+rank 0: ((1, {'mp_deg': 8, 'dp_deg': 1, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.43840678e+00]))
+rank 1: ((2, {'mp_deg': 8, 'dp_deg': 1, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.43840678e+00]))
+rank 2: ((4, {'mp_deg': 8, 'dp_deg': 1, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.43840678e+00]))
+rank 3: ((8, {'mp_deg': 8, 'dp_deg': 1, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.43840678e+00]))
+rank 4: ((16, {'mp_deg': 8, 'dp_deg': 1, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.43840678e+00]))
+rank 5: ((32, {'mp_deg': 8, 'dp_deg': 1, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.43840678e+00]))
+rank 6: ((1, {'mp_deg': 1, 'dp_deg': 2, 'pp_deg': 4.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 2.22825864e+00]))
+rank 7: ((2, {'mp_deg': 1, 'dp_deg': 2, 'pp_deg': 4.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 2.50078625e+00]))
+rank 8: ((1, {'mp_deg': 1, 'dp_deg': 1, 'pp_deg': 8.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 5, 6, 11, 17, 18, 24, 29, 30]), Tensor(shape=[1], dtype=Float64, value= [ 2.52181465e+00]))
+rank 9: ((2, {'mp_deg': 1, 'dp_deg': 1, 'pp_deg': 8.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 4, 7, 10, 16, 21, 25, 29, 30]), Tensor(shape=[1], dtype=Float64, value= [ 2.82150469e+00]))
+rank 10: ((1, {'mp_deg': 1, 'dp_deg': 4, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 2.96961018e+00]))
+rank 11: ((4, {'mp_deg': 1, 'dp_deg': 2, 'pp_deg': 4.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.04584147e+00]))
+rank 12: ((2, {'mp_deg': 1, 'dp_deg': 4, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.15077296e+00]))
+rank 13: ((2, {'mp_deg': 2, 'dp_deg': 1, 'pp_deg': 4.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 4, 13, 22, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.29465401e+00]))
+rank 14: ((1, {'mp_deg': 2, 'dp_deg': 1, 'pp_deg': 4.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 4, 11, 21, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.33302252e+00]))
+rank 15: ((4, {'mp_deg': 1, 'dp_deg': 1, 'pp_deg': 8.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 5, 10, 16, 19, 25, 27, 29, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.42082096e+00]))
+rank 16: ((1, {'mp_deg': 2, 'dp_deg': 2, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 13, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.44569087e+00]))
+rank 17: ((4, {'mp_deg': 1, 'dp_deg': 4, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.51309852e+00]))
+rank 18: ((2, {'mp_deg': 2, 'dp_deg': 2, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 13, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.61712401e+00]))
+rank 19: ((1, {'mp_deg': 4, 'dp_deg': 1, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 12, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.92071021e+00]))
+rank 20: ((4, {'mp_deg': 2, 'dp_deg': 2, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 13, 30]), Tensor(shape=[1], dtype=Float64, value= [ 3.95999029e+00]))
+rank 21: ((4, {'mp_deg': 2, 'dp_deg': 1, 'pp_deg': 4.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 4, 13, 21, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.00081736e+00]))
+rank 22: ((2, {'mp_deg': 4, 'dp_deg': 1, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 12, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.04030728e+00]))
+rank 23: ((1, {'mp_deg': 2, 'dp_deg': 4, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.08134896e+00]))
+rank 24: ((2, {'mp_deg': 2, 'dp_deg': 4, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.08134896e+00]))
+rank 25: ((4, {'mp_deg': 2, 'dp_deg': 4, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.08134896e+00]))
+rank 26: ((8, {'mp_deg': 2, 'dp_deg': 4, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.08134896e+00]))
+rank 27: ((8, {'mp_deg': 1, 'dp_deg': 2, 'pp_deg': 4.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 7, 15, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.13595190e+00]))
+rank 28: ((8, {'mp_deg': 1, 'dp_deg': 4, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.23774964e+00]))
+rank 29: ((1, {'mp_deg': 4, 'dp_deg': 2, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.24242219e+00]))
+rank 30: ((2, {'mp_deg': 4, 'dp_deg': 2, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.24242219e+00]))
+rank 31: ((4, {'mp_deg': 4, 'dp_deg': 2, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.24242219e+00]))
+rank 32: ((8, {'mp_deg': 4, 'dp_deg': 2, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.24242219e+00]))
+rank 33: ((16, {'mp_deg': 4, 'dp_deg': 2, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.24242219e+00]))
+rank 34: ((4, {'mp_deg': 4, 'dp_deg': 1, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 12, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.27950142e+00]))
+rank 35: ((1, {'mp_deg': 1, 'dp_deg': 8, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.55749262e+00]))
+rank 36: ((2, {'mp_deg': 1, 'dp_deg': 8, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.55749262e+00]))
+rank 37: ((4, {'mp_deg': 1, 'dp_deg': 8, 'pp_deg': 1.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.55749262e+00]))
+rank 38: ((8, {'mp_deg': 1, 'dp_deg': 1, 'pp_deg': 8.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 2, 5, 10, 16, 20, 24, 29, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.61945350e+00]))
+rank 39: ((8, {'mp_deg': 2, 'dp_deg': 2, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 13, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.64572283e+00]))
+rank 40: ((8, {'mp_deg': 4, 'dp_deg': 1, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 12, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.75788970e+00]))
+rank 41: ((8, {'mp_deg': 2, 'dp_deg': 1, 'pp_deg': 4.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 4, 13, 22, 30]), Tensor(shape=[1], dtype=Float64, value= [ 4.85390403e+00]))
+rank 42: ((16, {'mp_deg': 4, 'dp_deg': 1, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 12, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.71466626e+00]))
+rank 43: ((16, {'mp_deg': 2, 'dp_deg': 2, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 5.95797423e+00]))
+rank 44: ((16, {'mp_deg': 1, 'dp_deg': 2, 'pp_deg': 4.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 8, 16, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 6.31617276e+00]))
+rank 45: ((16, {'mp_deg': 1, 'dp_deg': 1, 'pp_deg': 8.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 5, 9, 12, 16, 19, 24, 29, 30]), Tensor(shape=[1], dtype=Float64, value= [ 6.96479871e+00]))
+rank 46: ((16, {'mp_deg': 2, 'dp_deg': 1, 'pp_deg': 4.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 4, 11, 21, 30]), Tensor(shape=[1], dtype=Float64, value= [ 7.08683619e+00]))
+rank 47: ((32, {'mp_deg': 4, 'dp_deg': 1, 'pp_deg': 2.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 15, 30]), Tensor(shape=[1], dtype=Float64, value= [ 7.62821938e+00]))
+rank 48: ((32, {'mp_deg': 2, 'dp_deg': 1, 'pp_deg': 4.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 8, 16, 23, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.10909041e+01]))
+rank 49: ((32, {'mp_deg': 1, 'dp_deg': 1, 'pp_deg': 8.0}, defaultdict(<class 'list'>, {0: [0, 1, 2, 3, 4, 5, 6, 7]}), [0, 4, 8, 12, 16, 20, 24, 27, 30]), Tensor(shape=[1], dtype=Float64, value= [ 1.18112487e+01]))
