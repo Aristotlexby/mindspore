@@ -1,0 +1,88 @@
+MP=4,DP=1,PP=4时的llama31b吞吐量
+策略均分结果,此时APSS搜索出的PP划分结果是[0,14,29,39,52]。
+
+2024-07-05 16:52:36,484 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    2/   10], loss: 0.000, per_step_time: 151854ms, lr: 4.8776412e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs:  1.91, global_norm: [27.814905]
+2024-07-05 16:52:36,490 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   20.0% |██████████                                        | 0.00165 samples/s/p  0:20:14 }
+2024-07-05 16:52:43,231 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    4/   10], loss: 0.000, per_step_time: 3358ms, lr: 3.969463e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 86.44, global_norm: [49.08581]
+2024-07-05 16:52:43,235 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   40.0% |████████████████████                              | 0.07443 samples/s/p  0:00:20 }
+2024-07-05 16:52:49,895 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    6/   10], loss: 0.000, per_step_time: 3324ms, lr: 2.4999998e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 87.32, global_norm: [19.327799]
+2024-07-05 16:52:49,896 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   60.0% |██████████████████████████████                    | 0.07521 samples/s/p  0:00:13 }
+{ Epoch:[  1/  1], step:[    8/   10], loss: 0.000, per_step_time: 3282ms, lr: 1.030537e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 88.44, global_norm: [5.364738]
+2024-07-05 16:52:56,478 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   80.0% |████████████████████████████████████████          | 0.07615 samples/s/p  0:00:06 }
+2024-07-05 16:53:03,048 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[   10/   10], loss: 0.000, per_step_time: 3279ms, lr: 1.223585e-06, overflow cond: False, loss_scale: 65536.0, TFLOPs: 88.52, global_norm: [5.0436907]
+2024-07-05 16:53:03,049 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   100.0% |██████████████████████████████████████████████████| 0.07624 samples/s/p  0:00:00 }
+2024-07-05 16:53:03,062 - mindformers[mindformers/trainer/base_trainer.py:805] - INFO - .........Training Over!.............
+
+MP=4,DP=2,PP=2时的llama31b吞吐量
+策略均分结果,此时APSS搜索出的PP划分结果是[0,26,52]。
+
+2024-07-08 15:24:09,912 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    2/   10], loss: 0.000, per_step_time: 230054ms, lr: 4.8776412e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs:  2.52, global_norm: [130.51129]
+2024-07-08 15:24:09,924 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   20.0% |██████████                                        | 0.00217 samples/s/p  0:30:40 }
+2024-07-08 15:24:19,793 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    4/   10], loss: 0.000, per_step_time: 4913ms, lr: 3.969463e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 118.16, global_norm: [84.68401]
+2024-07-08 15:24:19,795 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   40.0% |████████████████████                              | 0.10176 samples/s/p  0:00:29 }
+2024-07-08 15:24:29,672 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    6/   10], loss: 0.000, per_step_time: 4926ms, lr: 2.4999998e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 117.85, global_norm: [20.078804]
+2024-07-08 15:24:29,679 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   60.0% |██████████████████████████████                    | 0.10150 samples/s/p  0:00:19 }
+2024-07-08 15:24:39,529 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    8/   10], loss: 0.000, per_step_time: 4912ms, lr: 1.030537e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 118.18, global_norm: [7.856751]
+2024-07-08 15:24:39,531 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   80.0% |████████████████████████████████████████          | 0.10177 samples/s/p  0:00:09 }
+2024-07-08 15:24:49,368 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[   10/   10], loss: 0.000, per_step_time: 4913ms, lr: 1.223585e-06, overflow cond: False, loss_scale: 65536.0, TFLOPs: 118.16, global_norm: [6.412991]
+2024-07-08 15:24:49,369 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   100.0% |██████████████████████████████████████████████████| 0.10176 samples/s/p  0:00:00 }
+2024-07-08 15:24:49,382 - mindformers[mindformers/trainer/base_trainer.py:805] - INFO - .........Training Over!.............
+
+MP=4,DP=4,PP=1时的llama31b吞吐量
+策略均分结果,此时APSS搜索出的PP划分结果是[0,52]。
+
+2024-07-05 18:59:55,284 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    2/   10], loss: 10.283, per_step_time: 281376ms, lr: 4.8776412e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs:  1.03, global_norm: [54.661797]
+2024-07-05 18:59:55,291 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   20.0% |██████████                                        | 0.00089 samples/s/p  0:37:31 }
+[WARNING] DEVICE(118777,fffcfbfff1e0,python):2024-07-05-18:59:55.382.837 [mindspore/ccsrc/plugin/device/ascend/hal/hardware/ge_graph_executor.cc:1275] RunGraphRefMode] Now Memory Status, graph: kernel_graph1, max_static_memory_size: 28777682432, feature_memory_size: 21771579392, max_hbm_memory_size: 60666413056
+2024-07-05 19:00:02,681 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    4/   10], loss: 15.045, per_step_time: 3656ms, lr: 3.969463e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 79.39, global_norm: [147.0406]
+2024-07-05 19:00:02,700 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   40.0% |████████████████████                              | 0.06837 samples/s/p  0:00:21 }
+[WARNING] DEVICE(118777,fffcfbfff1e0,python):2024-07-05-19:00:02.749.380 [mindspore/ccsrc/plugin/device/ascend/hal/hardware/ge_graph_executor.cc:1275] RunGraphRefMode] Now Memory Status, graph: kernel_graph1, max_static_memory_size: 28777682432, feature_memory_size: 21771579392, max_hbm_memory_size: 60666413056
+2024-07-05 19:00:10,194 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    6/   10], loss: 15.922, per_step_time: 3725ms, lr: 2.4999998e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 77.92, global_norm: [131.43588]
+2024-07-05 19:00:10,198 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   60.0% |██████████████████████████████                    | 0.06710 samples/s/p  0:00:14 }
+[WARNING] DEVICE(118777,fffcfbfff1e0,python):2024-07-05-19:00:10.242.907 [mindspore/ccsrc/plugin/device/ascend/hal/hardware/ge_graph_executor.cc:1275] RunGraphRefMode] Now Memory Status, graph: kernel_graph1, max_static_memory_size: 28777682432, feature_memory_size: 21771579392, max_hbm_memory_size: 60666413056
+2024-07-05 19:00:17,581 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    8/   10], loss: 10.861, per_step_time: 3672ms, lr: 1.030537e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 79.05, global_norm: [10.110447]
+2024-07-05 19:00:17,586 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   80.0% |████████████████████████████████████████          | 0.06807 samples/s/p  0:00:07 }
+[WARNING] DEVICE(118777,fffcfbfff1e0,python):2024-07-05-19:00:17.623.436 [mindspore/ccsrc/plugin/device/ascend/hal/hardware/ge_graph_executor.cc:1275] RunGraphRefMode] Now Memory Status, graph: kernel_graph1, max_static_memory_size: 28777682432, feature_memory_size: 21771579392, max_hbm_memory_size: 60666413056
+2024-07-05 19:00:24,991 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[   10/   10], loss: 10.608, per_step_time: 3687ms, lr: 1.223585e-06, overflow cond: False, loss_scale: 65536.0, TFLOPs: 78.72, global_norm: [9.693484]
+2024-07-05 19:00:24,992 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   100.0% |██████████████████████████████████████████████████| 0.06779 samples/s/p  0:00:00 }
+2024-07-05 19:00:25,002 - mindformers[mindformers/trainer/base_trainer.py:805] - INFO - .........Training Over!.............
+
+MP=8,DP=1,PP=2时的llama31b吞吐量
+策略均分结果,此时APSS搜索出的PP划分结果是[0,26,52]
+
+2024-07-05 13:49:53,066 - mindformers[mindformers/core/callback/callback.py:264] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-07-05 13:49:53,072 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    2/   10], loss: 0.000, per_step_time: 216227ms, lr: 4.8776412e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs:  1.34, global_norm: [44.254444]
+2024-07-05 13:49:53,075 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   20.0% |██████████                                        | 0.00116 samples/s/p  0:28:49 }
+2024-07-05 13:49:58,419 - mindformers[mindformers/core/callback/callback.py:264] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-07-05 13:49:58,421 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    4/   10], loss: 0.000, per_step_time: 2652ms, lr: 3.969463e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 109.45, global_norm: [98.488556]
+2024-07-05 13:49:58,423 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   40.0% |████████████████████                              | 0.09425 samples/s/p  0:00:15 }
+2024-07-05 13:50:03,750 - mindformers[mindformers/core/callback/callback.py:264] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-07-05 13:50:03,754 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    6/   10], loss: 0.000, per_step_time: 2650ms, lr: 2.4999998e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 109.53, global_norm: [75.06384]
+2024-07-05 13:50:03,763 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   60.0% |██████████████████████████████                    | 0.09431 samples/s/p  0:00:10 }
+2024-07-05 13:50:09,066 - mindformers[mindformers/core/callback/callback.py:264] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-07-05 13:50:09,067 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    8/   10], loss: 0.000, per_step_time: 2641ms, lr: 1.030537e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 109.90, global_norm: [7.0382295]
+2024-07-05 13:50:09,068 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   80.0% |████████████████████████████████████████          | 0.09464 samples/s/p  0:00:05 }
+2024-07-05 13:50:14,354 - mindformers[mindformers/core/callback/callback.py:264] - WARNING - pipeline stages: 2 > 1, the loss on the last card is valid.
+2024-07-05 13:50:14,355 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[   10/   10], loss: 0.000, per_step_time: 2637ms, lr: 1.223585e-06, overflow cond: False, loss_scale: 65536.0, TFLOPs: 110.07, global_norm: [5.6469526]
+2024-07-05 13:50:14,356 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   100.0% |██████████████████████████████████████████████████| 0.09477 samples/s/p  0:00:00 }
+2024-07-05 13:50:14,373 - mindformers[mindformers/trainer/base_trainer.py:805] - INFO - .........Training Over!.............
+
+MP=8,DP=2,PP=1时的llama31b吞吐量
+策略均分结果,此时APSS搜索出的PP划分结果是[0,52]
+
+2024-07-05 15:53:18,186 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   10.0% |█████                                             | 0.00045 samples/s/p  1:23:51 }
+[WARNING] DEVICE(118786,fffceeffd1e0,python):2024-07-05-15:53:18.215.351 [mindspore/ccsrc/plugin/device/ascend/hal/hardware/ge_graph_executor.cc:1275] RunGraphRefMode] Now Memory Status, graph: kernel_graph1, max_static_memory_size: 28777682432, feature_memory_size: 17962079744, max_hbm_memory_size: 60666413056
+2024-07-05 15:53:22,174 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    4/   20], loss: 11.595, per_step_time: 1982ms, lr: 4.727516e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 73.22, global_norm: [64.577034]
+2024-07-05 15:53:22,181 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   20.0% |██████████                                        | 0.06307 samples/s/p  0:00:31 }
+[WARNING] DEVICE(118786,fffceeffd1e0,python):2024-07-05-15:53:22.205.353 [mindspore/ccsrc/plugin/device/ascend/hal/hardware/ge_graph_executor.cc:1275] RunGraphRefMode] Now Memory Status, graph: kernel_graph1, max_static_memory_size: 28777682432, feature_memory_size: 17962079744, max_hbm_memory_size: 60666413056
+2024-07-05 15:53:26,129 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    6/   20], loss: 17.296, per_step_time: 1964ms, lr: 4.267767e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 73.89, global_norm: [116.58041]
+2024-07-05 15:53:26,134 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   30.0% |███████████████                                   | 0.06362 samples/s/p  0:00:27 }
+[WARNING] DEVICE(118786,fffceeffd1e0,python):2024-07-05-15:53:26.160.793 [mindspore/ccsrc/plugin/device/ascend/hal/hardware/ge_graph_executor.cc:1275] RunGraphRefMode] Now Memory Status, graph: kernel_graph1, max_static_memory_size: 28777682432, feature_memory_size: 17962079744, max_hbm_memory_size: 60666413056
+2024-07-05 15:53:30,077 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[    8/   20], loss: 12.930, per_step_time: 1960ms, lr: 3.634976e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 74.05, global_norm: [35.833565]
+2024-07-05 15:53:30,079 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   40.0% |████████████████████                              | 0.06376 samples/s/p  0:00:23 }
+[WARNING] DEVICE(118786,fffceeffd1e0,python):2024-07-05-15:53:30.097.859 [mindspore/ccsrc/plugin/device/ascend/hal/hardware/ge_graph_executor.cc:1275] RunGraphRefMode] Now Memory Status, graph: kernel_graph1, max_static_memory_size: 28777682432, feature_memory_size: 17962079744, max_hbm_memory_size: 60666413056
+2024-07-05 15:53:34,004 - mindformers[mindformers/core/callback/callback.py:344] - INFO - { Epoch:[  1/  1], step:[   10/   20], loss: 10.948, per_step_time: 1955ms, lr: 2.891086e-05, overflow cond: False, loss_scale: 65536.0, TFLOPs: 74.23, global_norm: [7.9661236]
+2024-07-05 15:53:34,006 - mindformers[mindformers/core/callback/callback.py:352] - INFO -   50.0% |█████████████████████████                         | 0.06393 samples/s/p  0:00:19 }
+2024-07-05 15:53:34,011 - mindformers[mindformers/trainer/base_trainer.py:805] - INFO - .........Training Over!.............
+
+
